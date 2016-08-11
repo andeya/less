@@ -24,10 +24,10 @@ import (
 )
 
 var cmdRun = &Command{
-	UsageLine: "run [appname] [watchall] [-main=*.go] [-downdoc=true]  [-gendoc=true]  [-e=Godeps -e=folderToExclude]",
+	UsageLine: "run [appname] [watchall] [-main=*.go]",
 	Short:     "run the app and start a Web server for development",
 	Long: `
-Run command will supervise the file system of the beego project using inotify,
+Run command will supervise the file system of the lessgo project using inotify,
 it will recompile and restart the app after any modifications.
 
 `,
@@ -57,15 +57,12 @@ func (d *docValue) Set(value string) error {
 
 var mainFiles ListOpts
 
-var gendoc docValue
-
 // The flags list of the paths excluded from watching
 var excludedPaths strFlags
 
 func init() {
 	cmdRun.Run = runApp
 	cmdRun.Flag.Var(&mainFiles, "main", "specify main go files")
-	cmdRun.Flag.Var(&gendoc, "gendoc", "auto generate the docs")
 	cmdRun.Flag.Var(&excludedPaths, "e", "Excluded paths[].")
 }
 
@@ -91,11 +88,6 @@ func runApp(cmd *Command, args []string) int {
 	}
 	Debugf("current path:%s\n", crupath)
 
-	err := loadConfig()
-	if err != nil {
-		ColorLog("[ERRO] Fail to parse bee.json[ %s ]\n", err)
-	}
-
 	var paths []string
 
 	readAppDirectories(crupath, &paths)
@@ -119,13 +111,8 @@ func runApp(cmd *Command, args []string) int {
 		}
 	}
 
-	if gendoc == "true" {
-		NewWatcher(paths, files, true)
-		Autobuild(files, true)
-	} else {
-		NewWatcher(paths, files, false)
-		Autobuild(files, false)
-	}
+	NewWatcher(paths, files, false)
+	Autobuild(files, false)
 
 	for {
 		select {

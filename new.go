@@ -25,7 +25,7 @@ import (
 
 var cmdNew = &Command{
 	UsageLine: "new [appname]",
-	Short:     "Create a Lessgo application",
+	Short:     "create a Lessgo application",
 	Long: `
 Creates a Lessgo application for the given app name in the current directory.
 

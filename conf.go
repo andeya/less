@@ -73,7 +73,7 @@ var conf struct {
 
 // loadConfig loads customized configuration.
 func loadConfig() error {
-	f, err := os.Open("lessgo.json")
+	f, err := os.Open("less.json")
 	if err != nil {
 		// Use default.
 		err = json.Unmarshal([]byte(defaultConf), &conf)
@@ -82,7 +82,7 @@ func loadConfig() error {
 		}
 	} else {
 		defer f.Close()
-		ColorLog("[INFO] Detected lessgo.json\n")
+		ColorLog("[INFO] Detected less.json\n")
 		d := json.NewDecoder(f)
 		err = d.Decode(&conf)
 		if err != nil {
@@ -92,8 +92,8 @@ func loadConfig() error {
 
 	// Check format version.
 	if conf.Version != CONF_VER {
-		ColorLog("[WARN] Your lessgo.json is out-of-date, please update!\n")
-		ColorLog("[HINT] Compare lessgo.json under bee source code path and yours\n")
+		ColorLog("[WARN] Your less.json is out-of-date, please update!\n")
+		ColorLog("[HINT] Compare less.json under less source code path and yours\n")
 	}
 
 	// Set variables.
