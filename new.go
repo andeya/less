@@ -496,10 +496,8 @@ import (
 )
 
 func main() {
-    // 开启自动api文档
-    // 参数为true表示自定义允许访问的ip前缀
-    // 参数为false表示只允许局域网访问
-    swagger.Reg(false)
+    // 开启自动api文档，通过config/apidoc_allow.myconfig进行配置
+    swagger.Reg()
 
     // 指定根目录URL
     lessgo.SetHome("/home")
