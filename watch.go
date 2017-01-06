@@ -24,7 +24,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/lessgo/less/fsnotify"
+	"github.com/henrylee2cn/less/fsnotify"
 )
 
 var (

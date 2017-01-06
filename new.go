@@ -20,7 +20,7 @@ import (
 	path "path/filepath"
 	"strings"
 
-	"github.com/lessgo/lessgo/_fixture"
+	"github.com/henrylee2cn/lessgo/_fixture"
 )
 
 var cmdNew = &Command{
@@ -268,7 +268,7 @@ func createContent(tpl string) string {
 var middlewareTest = `package middleware
 
 import (
-    "github.com/lessgo/lessgo"
+    "github.com/henrylee2cn/lessgo"
 )
 
 var Print = lessgo.ApiMiddleware{
@@ -298,7 +298,7 @@ var ShowHeader = lessgo.ApiMiddleware{
 var sysRouter = `package router
 
 import (
-    "github.com/lessgo/lessgo"
+    "github.com/henrylee2cn/lessgo"
 
     "[[[importPrefix]]]/sys_handler/admin"
     "[[[importPrefix]]]/sys_handler/admin/login"
@@ -321,7 +321,7 @@ var adminIndex = `package admin
 import (
     "time"
 
-    "github.com/lessgo/lessgo"
+    "github.com/henrylee2cn/lessgo"
 )
 
 var Index = lessgo.ApiHandler{
@@ -340,7 +340,7 @@ var Index = lessgo.ApiHandler{
 var adminLoginIndex = `package login
 
 import (
-    . "github.com/lessgo/lessgo"
+    . "github.com/henrylee2cn/lessgo"
 
     "[[[importPrefix]]]/sys_model/admin"
 )
@@ -419,7 +419,7 @@ var adminLoginIndexTpl = `<!DOCTYPE html>
 var bizRouter = `package router
 
 import (
-    "github.com/lessgo/lessgo"
+    "github.com/henrylee2cn/lessgo"
 
     "[[[importPrefix]]]/biz_handler/home"
     "[[[importPrefix]]]/middleware"
@@ -438,7 +438,7 @@ func init() {
 var homeIndex = `package home
 
 import (
-    "github.com/lessgo/lessgo"
+    "github.com/henrylee2cn/lessgo"
 )
 
 var Index = lessgo.ApiHandler{
@@ -462,7 +462,7 @@ var homeSocketHandle = `package home
 import (
     "time"
 
-    "github.com/lessgo/lessgo"
+    "github.com/henrylee2cn/lessgo"
 )
 
 var WebSocket = lessgo.ApiHandler{
@@ -488,8 +488,8 @@ var WebSocket = lessgo.ApiHandler{
 var maingo = `package main
 
 import (
-    "github.com/lessgo/lessgo"
-    "github.com/lessgo/lessgoext/swagger"
+    "github.com/henrylee2cn/lessgo"
+    "github.com/henrylee2cn/lessgoext/swagger"
 
     _ "[[[importPrefix]]]/middleware"
     _ "[[[importPrefix]]]/router"
@@ -527,12 +527,12 @@ var homeIndexTpl = `<!DOCTYPE html>
             <h1>{{content}}</h1>
         </div>
         <div class="footer">
-            Github website: <a href="https://github.com/lessgo/lessgo">Lessgo {{version}}</a> / Discuss: <a href="http://jq.qq.com/?_wv=1027&k=fzi4p1">Go-Web 编程</a> / MIT.
+            Github website: <a href="https://github.com/henrylee2cn/lessgo">Lessgo {{version}}</a> / Discuss: <a href="http://jq.qq.com/?_wv=1027&k=fzi4p1">Go-Web 编程</a> / MIT.
         </div>
         <!-- github -->
         <div>
             <script type="text/javascript" src="/biz/home/jquery.githubRepoWidget2.js"></script>
-            <div class="github-widget" data-repo="lessgo/lessgo" style="margin:5px;"></div>
+            <div class="github-widget" data-repo="henrylee2cn/lessgo" style="margin:5px;"></div>
         </div>
     </div>
 </body>

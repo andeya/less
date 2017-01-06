@@ -12,7 +12,7 @@ Less is a command line tool facilitating development with lessgo framework. It i
 Begin by installing `less` using `go get` command.
 
 ```bash
-go get github.com/lessgo/less
+go get github.com/henrylee2cn/less
 ```
 
 Then you can add `less` binary to PATH environment variable in your `~/.bashrc` or `~/.bash_profile` file:
@@ -24,7 +24,7 @@ export PATH=$PATH:<your_main_gopath>/bin
 > If you already have `less` installed, updating `less` is simple:
 
 ```bash
-go get -u github.com/lessgo/less
+go get -u github.com/henrylee2cn/less
 ```
 
 ## Basic commands
